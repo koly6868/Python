@@ -1,0 +1,1 @@
+print("It is {0} object in this module".format(1))
