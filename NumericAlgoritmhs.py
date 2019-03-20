@@ -1,3 +1,5 @@
+from math import sqrt
+
 def max(a,b):
     if b > a:
         return b
@@ -21,3 +23,17 @@ def Fibonachi(count):
         b = c 
     
     return numbers
+
+
+
+def SimpleMultiplaers(number):
+    val = number
+    multiplaers = {}
+ 
+    for i in range(1,int(number/2)+1):
+        if val % i == 0:
+            if multiplaers.keys().
+            multiplaers[i] += 1
+            val /= i
+    
+    return multiplaers
