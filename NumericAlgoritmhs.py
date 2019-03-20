@@ -1,4 +1,5 @@
-from math import sqrt
+from math import sqrt, inf
+import random as r
 
 def max(a,b):
     if b > a:
@@ -7,7 +8,7 @@ def max(a,b):
         return a
 
 
-
+# Generate Fibonachi sequence
 def Fibonachi(count):
     assert count > 1, 'count must be more than 1'
     numbers = []
@@ -25,15 +26,66 @@ def Fibonachi(count):
     return numbers
 
 
-
+# Find simple multiplaers and count of them
 def SimpleMultiplaers(number):
     val = number
     multiplaers = {}
- 
-    for i in range(1,int(number/2)+1):
-        if val % i == 0:
-            if multiplaers.keys().
-            multiplaers[i] += 1
-            val /= i
-    
+    mult = 2
+    while val >= mult:
+        if val % mult == 0:
+            multiplaers[mult] = 0
+            while val % mult == 0:
+                multiplaers[mult] += 1
+                val = int(val / mult)
+        mult += 1
+           
     return multiplaers
+
+
+# optimazed algoritm for getting simple number for 1 to limit
+def SimpleNumbers(limit = -1):
+    strm = []
+    if limit == -1:
+        limit = int(inf)
+    number = 1
+    
+    while number < limit:
+        i = 3
+        maxMult = int(sqrt(number))
+        while i <= maxMult:
+            if number % i == 0:
+                break
+            i += 2
+        else:
+            strm.append(number)
+        
+        number += 2
+    return strm
+
+
+# Evklid
+def NOD(first,second):
+    a = first
+    b = second
+    if a == b:
+        return a
+    
+    while a != 0 and b != 0:
+        if a > b:
+            a %= b
+        else:
+            b %= a
+    
+    return a + b
+
+
+# Ferma check (probablistick)
+def IsSimple(number):
+    val = number
+    r.seed()
+    p = r.randint(val, 2*val)
+    if (val ** p) % p == val % p:
+        return True
+    else:
+         return False
+    

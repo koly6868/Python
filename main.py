@@ -10,5 +10,5 @@ with open("configuration.json", "r") as read_file:
 print("Hello")
 print(max(2, 4))
 a = input("please\n")
-answ = NA.SimpleMultiplaers(int(a))
+answ = NA.IsSimple(int(a))
 print(answ)
